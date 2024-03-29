@@ -1,0 +1,34 @@
+digraph "cluster0assignment03_main.py" {
+	graph [compound=True fontname="DejaVu Sans Mono" label="assignment03_main.py" pack=False rankdir=TB ranksep=0.02]
+	node [fontname="DejaVu Sans Mono"]
+	edge [fontname="DejaVu Sans Mono"]
+	1 [label="from automata.fa.nfa import NFA\lexample_nfa = NFA(states={'q0', 'q1', 'q2'}, input_symbols={'0', '1'},\l    transitions={'q0': {'': {'q1', 'q2'}}, 'q1': {'0': {'q1'}, '1': {'q2'}},\l    'q2': {'0': {'q1'}, '1': {'q2'}}}, initial_state='q0', final_states={'q1'})\lexample_nfa_regex = '(1*0)?(11*0|0)*'\lprob_1_18a = '1.*0'\lprob_1_18b = '.*1.*1.*1.*'\lprob_1_18c = '.*0101.*'\lprob_1_18g = '.{0,5}'\lprob_1_18i = '(1(0|1))*(()|1)'\lprob_1_18l = '(1*(01*01*)*)|(0*10*10*)'\lprob_1_19a = NFA(states={'q0', 'q1', 'q2', 'q3'}, input_symbols={'0', '1'},\l    transitions={'q0': {'0': {'q1'}, '1': {'q0'}}, 'q1': {'0': {'q2'}, '1':\l    {'q0'}}, 'q2': {'0': {'q3'}, '1': {'q0'}}, 'q3': {'0': {'q3'}, '1': {\l    'q3'}}}, initial_state='q0', final_states={'q3'})" fillcolor="#FFFB81" shape=rectangle style="filled,solid"]
+	1 -> 2 [label=calls style=dashed]
+	1 -> 3 [label=calls style=dashed]
+	subgraph cluster_1 {
+		graph [color=purple compound=true fontname="DejaVu Sans Mono" label="" rankdir=TB ranksep=0.02 shape=tab style=filled]
+		node [fontname="DejaVu Sans Mono"]
+		edge [fontname="DejaVu Sans Mono"]
+		2 [label=NFA color="#E552FF" shape=tab style=filled]
+		3 [label=NFA color="#E552FF" shape=tab style=filled]
+	}
+	subgraph cluster_KEY {
+		graph [fontname="DejaVu Sans Mono" label=KEY]
+		node [fontname="DejaVu Sans Mono"]
+		edge [fontname="DejaVu Sans Mono"]
+		input [fillcolor="#afeeee" shape=parallelogram style=filled]
+		default [fillcolor="#FFFB81" shape=rectangle style=filled]
+		if [fillcolor="#FF6752" shape=diamond style=filled]
+		for [fillcolor="#FFBE52" shape=hexagon style=filled]
+		while [fillcolor="#FFBE52" shape=hexagon style=filled]
+		call [fillcolor="#E552FF" shape=tab style=filled]
+		return [fillcolor="#98fb98" shape=parallelogram style=filled]
+		try [fillcolor=orange shape=Mdiamond style=filled]
+		raise [fillcolor="#98fb98" shape=house style=filled]
+		if -> input [style=invis]
+		input -> call [style=invis]
+		for -> return [style=invis]
+		return -> default [style=invis]
+		try -> raise [style=invis]
+	}
+}
